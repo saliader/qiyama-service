@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Formulaire Pré-inscription Hajj 1448/2027 – Qiyama Service</title>
+<style>
+:root{--bleu:#0f1f3d;--or:#b8893f;--bg:#f5f6f8;--txt:#1d2733;--bord:#d5dbe3;--err:#c0392b}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--txt);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.45}
+.wrap{max-width:680px;margin:0 auto;padding:24px 16px 60px}
+header{text-align:center;margin-bottom:24px}
+.logo{display:block;margin:0 auto;width:200px;max-width:70%;height:auto}
+.brand{display:inline-block;background:var(--bleu);color:#fff;padding:10px 22px;border-radius:10px;font-weight:700;letter-spacing:.5px;border-bottom:3px solid var(--or)}
+h1{font-size:1.6rem;margin:18px 0 6px}
+header p{margin:0;color:#556}
+.q{margin:22px 0}
+.q>label,.q>.lbl{display:block;font-weight:600;margin-bottom:8px}
+.req{color:var(--err)}
+input[type=text],input[type=email],input[type=tel],textarea{width:100%;padding:12px;border:1px solid var(--bord);border-radius:8px;font:inherit;background:#fff}
+input:focus,textarea:focus{outline:2px solid var(--or);border-color:var(--or)}
+textarea{min-height:100px;resize:vertical}
+.opts{display:grid;gap:8px}
+.opt{display:flex;align-items:center;gap:10px;padding:11px 12px;border:1px solid var(--bord);border-radius:8px;background:#fff;cursor:pointer}
+.opt:hover{border-color:var(--or)}
+.opt:has(input:checked){border-color:var(--bleu);background:#eaf0f8}
+.opt input{accent-color:var(--bleu);width:18px;height:18px;margin:0}
+.key{display:inline-grid;place-items:center;width:22px;height:22px;border:1px solid var(--bord);border-radius:5px;font-size:.75rem;color:#667;flex:none}
+.file{border:2px dashed var(--bord);background:#fff;border-radius:10px;padding:22px;text-align:center;cursor:pointer;color:#556}
+.file small{display:block;margin-top:4px}
+#prev{max-width:100%;max-height:180px;margin-top:10px;border-radius:8px;display:none}
+.sig{border:1px solid var(--bord);background:#fff;border-radius:8px;position:relative}
+canvas{width:100%;height:160px;display:block;touch-action:none}
+.sig button{position:absolute;right:8px;top:8px;border:1px solid var(--bord);background:#fff;border-radius:6px;padding:4px 10px;cursor:pointer}
+.ph{position:absolute;left:12px;bottom:8px;color:#aab;pointer-events:none}
+.hidden{display:none}
+.err{color:var(--err);font-size:.85rem;margin-top:6px;display:none}
+.q.bad .err{display:block}
+.q.bad .opt,.q.bad .file,.q.bad .sig,.q.bad input[type=text],.q.bad input[type=email],.q.bad input[type=tel]{border-color:var(--err)}
+.submit{width:100%;padding:15px;border:0;border-radius:10px;background:var(--bleu);color:#fff;font-size:1.05rem;font-weight:700;cursor:pointer;margin-top:10px;border-bottom:3px solid var(--or)}
+.submit:hover{filter:brightness(1.15)}
+.done{display:none;text-align:center;background:#fff;border-radius:12px;padding:30px 20px;margin-top:20px}
+.done a.btn,.done button{display:inline-block;margin:6px;padding:12px 18px;border-radius:8px;border:0;background:#25d366;color:#fff;font-weight:700;text-decoration:none;cursor:pointer;font-size:1rem}
+.done button.sec{background:var(--bleu)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <img src="logo.png" alt="Qiyama Service" class="logo" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block'">
+  <div class="brand" style="display:none">QIYAMA SERVICE</div>
+  <h1>🕋 Formulaire Pré-inscription Hajj 1448/2027</h1>
+  <p>Pré-inscrivez-vous maintenant pour être traité en priorité.</p>
+</header>
+
+<form id="f" novalidate>
+  <div class="q" data-req><label for="nom">Nom complet <span class="req">*</span></label><input type="text" id="nom" name="Nom complet" autocomplete="name"><div class="err">Ce champ est obligatoire.</div></div>
+
+  <div class="q" data-req><label for="mail">Adresse e-mail <span class="req">*</span></label><input type="email" id="mail" name="E-mail" autocomplete="email"><div class="err">Veuillez saisir une adresse e-mail valide.</div></div>
+
+  <div class="q" data-req><div class="lbl">En vous inscrivant, vous acceptez de recevoir nos actualités par mail. Vous pouvez vous désabonner à tout moment. <span class="req">*</span></div>
+    <div class="opts" data-type="radio" data-name="Accepte les actualités par mail">
+      <label class="opt"><input type="radio" name="consent" value="Oui">Oui</label>
+      <label class="opt"><input type="radio" name="consent" value="Non">Non</label></div><div class="err">Veuillez choisir une réponse.</div></div>
+
+  <div class="q" data-req><label for="tel">Numéro de téléphone (avec indicatif) <span class="req">*</span></label><input type="tel" id="tel" name="Téléphone" autocomplete="tel" placeholder="+33 6 12 34 56 78"><div class="err">Ce champ est obligatoire.</div></div>
+
+  <div class="q" data-req><div class="lbl">Photo du passeport (page d'identité) <span class="req">*</span></div>
+    <label class="file" id="drop" for="pass">Cliquez pour choisir un fichier ou faites-le glisser ici<small>Limite de taille : 10 Mo</small></label>
+    <input type="file" id="pass" accept="image/*,application/pdf" class="hidden"><img id="prev" alt="Aperçu"><div class="err" id="passErr">Veuillez ajouter une photo de votre passeport (10 Mo max).</div></div>
+
+  <div class="q" data-req><div class="lbl">Ville de départ <span class="req">*</span></div>
+    <div class="opts" data-type="radio" data-name="Ville de départ">
+      <label class="opt"><input type="radio" name="depart" value="Paris"><span class="key">A</span>Paris</label>
+      <label class="opt"><input type="radio" name="depart" value="Lyon"><span class="key">B</span>Lyon</label>
+      <label class="opt"><input type="radio" name="depart" value="Barcelone"><span class="key">C</span>Barcelone</label>
+      <label class="opt"><input type="radio" name="depart" value="Autre"><span class="key">D</span>Autre</label></div><div class="err">Veuillez choisir une réponse.</div></div>
+
+  <div class="q hidden" id="autreQ"><label for="autre">Si autre, précisez la ville</label><input type="text" id="autre" name="Autre ville"></div>
+
+  <div class="q" data-req><div class="lbl">Ville de début du séjour <span class="req">*</span></div>
+    <div class="opts" data-type="radio" data-name="Ville de début du séjour">
+      <label class="opt"><input type="radio" name="debut" value="La Mecque"><span class="key">A</span>La Mecque</label>
+      <label class="opt"><input type="radio" name="debut" value="Médine"><span class="key">B</span>Médine</label>
+      <label class="opt"><input type="radio" name="debut" value="Indifférent"><span class="key">C</span>Indifférent</label></div><div class="err">Veuillez choisir une réponse.</div></div>
+
+  <div class="q" data-req><div class="lbl">Durée du séjour <span class="req">*</span></div>
+    <div class="opts" data-type="radio" data-name="Durée du séjour">
+      <label class="opt"><input type="radio" name="duree" value="14 jours"><span class="key">A</span>14 jours</label>
+      <label class="opt"><input type="radio" name="duree" value="15-16 jours"><span class="key">B</span>15-16 jours</label>
+      <label class="opt"><input type="radio" name="duree" value="17-19 jours"><span class="key">C</span>17-19 jours</label></div><div class="err">Veuillez choisir une réponse.</div></div>
+
+  <div class="q" data-req><div class="lbl">Budget / Formule <span class="req">*</span></div>
+    <div class="opts" data-type="radio" data-name="Budget / Formule">
+      <label class="opt"><input type="radio" name="budget" value="Économique"><span class="key">A</span>Économique</label>
+      <label class="opt"><input type="radio" name="budget" value="Meilleur rapport qualité/prix"><span class="key">B</span>Meilleur rapport qualité/prix</label>
+      <label class="opt"><input type="radio" name="budget" value="Luxe"><span class="key">C</span>Luxe</label></div><div class="err">Veuillez choisir une réponse.</div></div>
+
+  <div class="q" data-req><div class="lbl">Préférences hôtel <span class="req">*</span></div>
+    <div class="opts" data-type="radio" data-name="Préférences hôtel">
+      <label class="opt"><input type="radio" name="hotel" value="Hôtel 4 étoiles"><span class="key">A</span>Hôtel 4 étoiles</label>
+      <label class="opt"><input type="radio" name="hotel" value="Hôtel 5 étoiles"><span class="key">B</span>Hôtel 5 étoiles</label>
+      <label class="opt"><input type="radio" name="hotel" value="Indifférent"><span class="key">C</span>Indifférent</label></div><div class="err">Veuillez choisir une réponse.</div></div>
+
+  <div class="q" data-req><div class="lbl">Localisation hôtels <span class="req">*</span></div>
+    <div class="opts" data-type="checkbox" data-name="Localisation hôtels">
+      <label class="opt"><input type="checkbox" value="Proche du Haram avant Hajj">Proche du Haram avant Hajj</label>
+      <label class="opt"><input type="checkbox" value="Proche du Haram après Hajj">Proche du Haram après Hajj</label>
+      <label class="opt"><input type="checkbox" value="Proche de Mina avant Hajj">Proche de Mina avant Hajj</label>
+      <label class="opt"><input type="checkbox" value="Proche de Mina après Hajj">Proche de Mina après Hajj</label>
+      <label class="opt"><input type="checkbox" value="Indifférent">Indifférent</label></div><div class="err">Veuillez choisir au moins une réponse.</div></div>
+
+  <div class="q" data-req><div class="lbl">Transport interne <span class="req">*</span></div>
+    <div class="opts" data-type="radio" data-name="Transport interne">
+      <label class="opt"><input type="radio" name="transport" value="Bus"><span class="key">A</span>Bus</label>
+      <label class="opt"><input type="radio" name="transport" value="Train (supplément)"><span class="key">B</span>Train (supplément)</label>
+      <label class="opt"><input type="radio" name="transport" value="Indifférent"><span class="key">C</span>Indifférent</label></div><div class="err">Veuillez choisir une réponse.</div></div>
+
+  <div class="q"><div class="lbl">Besoins spécifiques</div>
+    <div class="opts" data-type="checkbox" data-name="Besoins spécifiques">
+      <label class="opt"><input type="checkbox" value="Fauteuil roulant"><span class="key">A</span>Fauteuil roulant</label>
+      <label class="opt"><input type="checkbox" value="Autre"><span class="key">B</span>Autre</label></div></div>
+
+  <div class="q" data-req><div class="lbl">Possède un compte Nusuk <span class="req">*</span></div>
+    <div class="opts" data-type="radio" data-name="Possède un compte Nusuk">
+      <label class="opt"><input type="radio" name="nusuk" value="Oui"><span class="key">A</span>Oui</label>
+      <label class="opt"><input type="radio" name="nusuk" value="Non"><span class="key">B</span>Non</label></div><div class="err">Veuillez choisir une réponse.</div></div>
+
+  <div class="q"><div class="lbl">Statut du compte Nusuk</div>
+    <div class="opts" data-type="radio" data-name="Statut du compte Nusuk">
+      <label class="opt"><input type="radio" name="statut" value="Validé et rechargé"><span class="key">A</span>Validé et rechargé</label>
+      <label class="opt"><input type="radio" name="statut" value="Validé non rechargé"><span class="key">B</span>Validé non rechargé</label>
+      <label class="opt"><input type="radio" name="statut" value="En cours de validation"><span class="key">C</span>En cours de validation</label></div></div>
+
+  <div class="q"><label for="notes">Autres précisions ou demandes particulières</label><textarea id="notes" name="Précisions"></textarea></div>
+
+  <div class="q" data-req id="sigQ"><div class="lbl">Signature <span class="req">*</span></div>
+    <div class="sig"><canvas id="sig"></canvas><span class="ph" id="ph">Signature</span><button type="button" id="clr">Effacer</button></div><div class="err">Veuillez signer.</div></div>
+
+  <button class="submit" type="submit">Soumettre</button>
+</form>
+
+<div class="done" id="done">
+  <h2>Merci ! 🤲</h2>
+  <p>WhatsApp va s'ouvrir avec votre demande déjà rédigée. <b>Appuyez sur « Envoyer »</b> pour la transmettre à Qiyama Service.</p>
+  <p><b>Important :</b> WhatsApp ne permet pas d'envoyer des fichiers automatiquement. Joignez ensuite vous-même la photo de votre passeport et votre signature dans la conversation.</p>
+  <a class="btn" id="wa" target="_blank" rel="noopener">Ouvrir WhatsApp</a><br>
+  <button class="sec" id="dlSig" type="button">Télécharger ma signature</button>
+</div>
+</div>
+
+<script>
+const WA_NUMBER = "966582002131";
+const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+
+// Ville "Autre"
+$$('input[name=depart]').forEach(r => r.addEventListener('change', () => $('#autreQ').classList.toggle('hidden', $('input[name=depart]:checked').value !== 'Autre')));
+
+// Passeport
+let passFile = null;
+const MAX = 10 * 1024 * 1024;
+function setFile(f){
+  if(!f) return;
+  if(f.size > MAX){ passFile = null; $('#passErr').textContent = 'Fichier trop volumineux (10 Mo max).'; $('#pass').value=''; $('#prev').style.display='none'; return; }
+  passFile = f;
+  $('#passErr').textContent = 'Veuillez ajouter une photo de votre passeport (10 Mo max).';
+  $('#drop').firstChild.textContent = '✔ ' + f.name;
+  if(f.type.startsWith('image/')){ $('#prev').src = URL.createObjectURL(f); $('#prev').style.display='block'; } else $('#prev').style.display='none';
+  $('#drop').closest('.q').classList.remove('bad');
+}
+$('#pass').addEventListener('change', e => setFile(e.target.files[0]));
+['dragover','drop'].forEach(ev => $('#drop').addEventListener(ev, e => { e.preventDefault(); if(ev==='drop') setFile(e.dataTransfer.files[0]); }));
+
+// Signature
+const cv = $('#sig'), ctx = cv.getContext('2d'); let drawing=false, signed=false;
+function fit(){ const r=cv.getBoundingClientRect(), d=window.devicePixelRatio||1; cv.width=r.width*d; cv.height=r.height*d; ctx.scale(d,d); ctx.lineWidth=2.2; ctx.lineCap='round'; ctx.strokeStyle='#0f1f3d'; }
+fit(); addEventListener('resize', ()=>{ if(!signed) fit(); });
+const pos = e => { const r=cv.getBoundingClientRect(); return {x:e.clientX-r.left,y:e.clientY-r.top}; };
+cv.addEventListener('pointerdown', e => { drawing=true; cv.setPointerCapture(e.pointerId); const p=pos(e); ctx.beginPath(); ctx.moveTo(p.x,p.y); $('#ph').style.display='none'; });
+cv.addEventListener('pointermove', e => { if(!drawing) return; const p=pos(e); ctx.lineTo(p.x,p.y); ctx.stroke(); signed=true; });
+['pointerup','pointercancel'].forEach(ev => cv.addEventListener(ev, ()=>{ drawing=false; if(signed) $('#sigQ').classList.remove('bad'); }));
+$('#clr').onclick = () => { ctx.clearRect(0,0,cv.width,cv.height); signed=false; $('#ph').style.display=''; };
+
+// Soumission
+const val = q => {
+  const g = q.querySelector('.opts');
+  if(g) return g.dataset.type==='radio' ? !!g.querySelector('input:checked') : !!g.querySelector('input:checked');
+  const i = q.querySelector('input[type=text],input[type=email],input[type=tel]');
+  if(i) return i.type==='email' ? /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(i.value.trim()) : i.value.trim()!=='';
+  return true;
+};
+$('#f').addEventListener('submit', e => {
+  e.preventDefault();
+  let ok = true, first = null;
+  $$('.q[data-req]').forEach(q => {
+    let good;
+    if(q.querySelector('#pass')) good = !!passFile;
+    else if(q.id==='sigQ') good = signed;
+    else good = val(q);
+    q.classList.toggle('bad', !good);
+    if(!good){ ok=false; first = first || q; }
+  });
+  if(!ok){ first.scrollIntoView({behavior:'smooth',block:'center'}); return; }
+
+  const L = [];
+  L.push('🕋 *Pré-inscription Hajj 1448/2027*','');
+  L.push('*Nom complet :* ' + $('#nom').value.trim());
+  L.push('*E-mail :* ' + $('#mail').value.trim());
+  L.push('*Téléphone :* ' + $('#tel').value.trim());
+  $$('.opts').forEach(g => {
+    const v = [...g.querySelectorAll('input:checked')].map(i=>i.value);
+    if(!v.length) return;
+    let t = v.join(', ');
+    if(g.dataset.name==='Ville de départ' && t==='Autre' && $('#autre').value.trim()) t = 'Autre (' + $('#autre').value.trim() + ')';
+    L.push('*' + g.dataset.name + ' :* ' + t);
+  });
+  if($('#notes').value.trim()) L.push('*Précisions :* ' + $('#notes').value.trim());
+  L.push('', '📎 Passeport (' + passFile.name + ') et signature à joindre dans cette conversation.');
+  $('#wa').href = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(L.join('\n'));
+  $('#f').style.display='none'; $('#done').style.display='block'; scrollTo({top:0});
+  window.open($('#wa').href, '_blank');
+});
+
+$('#dlSig').onclick = () => { const a=document.createElement('a'); a.download='signature.png'; a.href=cv.toDataURL('image/png'); a.click(); };
+</script>
+</body>
+</html>
